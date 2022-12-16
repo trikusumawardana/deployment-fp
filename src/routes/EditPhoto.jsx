@@ -13,7 +13,7 @@ const EditPhoto = () => {
   const editPhoto = async (e) => {
     e.preventDefault();
     const NewData = { imageUrl, captions, updatedAt: "update" };
-    await fetch(`https://galery-app-server.vercel.app/photos/${id}`, {
+    await fetch(`https://gallery-app-server.vercel.app/photos/${id}`, {
       method: "PATCH",
       body: JSON.stringify(NewData),
       headers: {
@@ -29,7 +29,7 @@ const EditPhoto = () => {
     setLoading(true);
     const getDataPhotos = async () => {
       try {
-        const response = await fetch(`https://galery-app-server.vercel.app/photos/${id}`);
+        const response = await fetch(`https://gallery-app-server.vercel.app/photos/${id}`);
         const responseJson = await response.json();
         setCaptions(responseJson.captions);
         setImageUrl(responseJson.imageUrl);

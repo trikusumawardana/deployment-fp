@@ -21,7 +21,7 @@ const AddPhoto = () => {
     if(secret !=="password"){
       setError("You not have acces")
     }else{
-      await fetch("https://galery-app-server.vercel.app/photos/", {
+      await fetch("https://gallery-app-server.vercel.app/photos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

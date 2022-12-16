@@ -13,7 +13,7 @@ const Photos = () => {
 
 
   const deletePhoto = async (id) => {
-    await fetch(`https://galery-app-server.vercel.app/photos/${id}`, {
+    await fetch(`https://gallery-app-server.vercel.app/photos/${id}`, {
       method: "DELETE",
     });
     setPhotos(photos.filter((photoId) => photoId.id !== id));
@@ -22,7 +22,7 @@ const Photos = () => {
   // useeffect ini akan berjalan ketika ada perubahan di sort, submited dan refresh
   useEffect(() => {
     const queryParams = new URLSearchParams({ _sort: "id", _order: `${sort}`, q: `${submited}` });
-    fetch(`https://galery-app-server.vercel.app/photos?${queryParams}`)
+    fetch(`https://gallery-app-server.vercel.app/photos?${queryParams}`)
       .then((response) => response.json())
       .then((json) => {
         setPhotos(json);
@@ -36,7 +36,7 @@ const Photos = () => {
     setLoading(true);
     const loadData = async () => {
       try {
-        const response = await fetch("https://galery-app-server.vercel.app/photos/");
+        const response = await fetch("https://gallery-app-server.vercel.app/photos");
         const responseJson = await response.json();
         setPhotos(responseJson);
         setLoading(false);
